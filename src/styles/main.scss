@@ -6,7 +6,8 @@ $border-width: 1px;
 $main-font-size: 30px;
 $main-color: #000;
 $gap: 1px;
-$padding: 10px;
+$padding-total: 10px;
+$padding-side: 5px;
 $days: (
   mon: 0,
   tue: 1,
@@ -27,6 +28,7 @@ $hover-lift: 20px;
 
 body {
   margin: 0;
+  padding: 0 $padding-side;
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -39,8 +41,8 @@ body {
     display: flex;
     flex-wrap: wrap;
     gap: $gap;
-    width: calc(7 * ($width-day + $gap) - $gap + 2 * $padding);
-    padding: $padding;
+    width: calc(7 * (#{$width-day} + #{$gap}) - #{$gap} + #{$padding-total});
+    padding: $padding-side;
   }
 
   &__day {
@@ -48,7 +50,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-width: $width-day;
+    width: $width-day;
     height: $height-day;
     background-color: $base-color;
     border: $border-width solid $border-color;
